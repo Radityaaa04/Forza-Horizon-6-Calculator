@@ -7,7 +7,7 @@ export default function PressureGauge({
   maxValue = 55,
   label = 'Depan',
   unit = 'PSI',
-  accentColor = '#ff2d78',
+  accentColor = '#f97316',
 }) {
   const gaugeData = useMemo(() => {
     const radius = 80;
@@ -30,9 +30,9 @@ export default function PressureGauge({
     let color = accentColor;
     const psiValue = unit === 'BAR' ? value * 14.5038 : value;
     if (psiValue < 18 || psiValue > 48) {
-      color = '#ff3344';
+      color = '#ef4444';
     } else if (psiValue < 22 || psiValue > 42) {
-      color = '#ffaa00';
+      color = '#f97316';
     }
 
     // Start position for the arc (135 degrees = bottom-left)

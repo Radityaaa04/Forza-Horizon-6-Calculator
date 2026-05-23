@@ -13,11 +13,10 @@ export default function ParticleBackground() {
     let particles = [];
 
     const colors = [
-      'rgba(255, 45, 120, 0.3)',
-      'rgba(0, 212, 255, 0.25)',
-      'rgba(123, 97, 255, 0.2)',
-      'rgba(255, 107, 53, 0.2)',
-      'rgba(0, 255, 136, 0.15)',
+      'rgba(249, 115, 22, 0.25)',
+      'rgba(34, 211, 238, 0.2)',
+      'rgba(250, 250, 250, 0.08)',
+      'rgba(34, 197, 94, 0.15)',
     ];
 
     function resize() {
