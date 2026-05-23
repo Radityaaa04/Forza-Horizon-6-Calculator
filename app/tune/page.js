@@ -1,11 +1,9 @@
 'use client';
 
-import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import TuneSummarySheet from '../../components/TuneSummarySheet';
 import TuneErrorBoundary from '../../components/TuneErrorBoundary';
-
-// Lazy load 3D component for better performance
-const Racing3DWheel = lazy(() => import('../../components/Racing3DWheel'));
+import PerformanceGauge from '../../components/PerformanceGauge';
 
 // CORRECT imports — verified file names and function names
 import { calculatePressure } from '../../lib/calculator';
@@ -274,7 +272,7 @@ export default function TunePage() {
     <TuneErrorBoundary>
     <main className="main-content" style={{ maxWidth: '1400px', display: 'block' }}>
       
-      {/* Hero Section with 3D Wheel */}
+      {/* Hero Section with Performance Gauge */}
       <section className="hero-3d-section">
         <div className="hero-3d-content">
           <div className="hero-3d-text stagger-1">
@@ -298,9 +296,14 @@ export default function TunePage() {
             </div>
           </div>
           <div className="hero-3d-wheel stagger-2">
-            <Suspense fallback={<div className="racing-3d-loading"><div className="racing-3d-loading-spinner" /></div>}>
-              <Racing3DWheel height="380px" primaryColor="#f97316" accentColor="#22d3ee" />
-            </Suspense>
+            <PerformanceGauge
+              horsepower={parseFloat(formData.horsepower) || 400}
+              weight={parseFloat(formData.weight) || 1200}
+              topSpeed={parseFloat(formData.topSpeed) || 250}
+              weightBias={parseFloat(formData.weightBias) || 50}
+              drivetrain={formData.drivetrain}
+              tireCompound={formData.tireCompound}
+            />
           </div>
         </div>
       </section>

@@ -2525,3 +2525,230 @@ select:focus-visible,
     font-size: 1.2rem;
   }
 }
+
+/* ============================================
+   PERFORMANCE GAUGE COMPONENT
+   ============================================ */
+.performance-gauge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-lg);
+  width: 100%;
+  max-width: 320px;
+}
+
+.performance-main-gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.performance-overall-ring {
+  position: relative;
+  width: 160px;
+  height: 160px;
+}
+
+.performance-overall-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.performance-overall-value {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.performance-overall-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 4px;
+}
+
+.performance-ptw {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-xs);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.performance-ptw-value {
+  font-family: var(--font-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.performance-ptw-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.performance-metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.bar-gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-gauge-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-gauge-label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bar-gauge-value {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.bar-gauge-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.bar-gauge-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.performance-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  width: 100%;
+}
+
+.performance-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.performance-stat-value {
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.performance-stat-label {
+  font-family: var(--font-heading);
+  font-size: 0.6rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.performance-stat-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Ring gauge styles */
+.ring-gauge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ring-gauge-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-gauge-value {
+  font-family: var(--font-mono);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.ring-gauge-unit {
+  font-family: var(--font-heading);
+  font-size: 0.55rem;
+  color: var(--color-text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ring-gauge-label {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+  .performance-gauge-container {
+    max-width: 100%;
+    padding: var(--space-md);
+  }
+  
+  .performance-overall-ring {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .performance-overall-ring svg {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .performance-overall-value {
+    font-size: 2rem;
+  }
+}
