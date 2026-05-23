@@ -47,9 +47,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" className={`${inter.variable} ${outfit.variable} ${orbitron.variable}`}>
+    <html lang="id" className={`${inter.variable} ${outfit.variable} ${orbitron.variable} bg-background`}>
       <head>
-        <meta name="theme-color" content="#06060f" />
+        <meta name="theme-color" content="#0a0a0c" />
       </head>
       <body>
         <ParticleBackground />

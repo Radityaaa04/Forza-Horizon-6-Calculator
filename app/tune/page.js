@@ -1,8 +1,11 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import TuneSummarySheet from '../../components/TuneSummarySheet';
 import TuneErrorBoundary from '../../components/TuneErrorBoundary';
+
+// Lazy load 3D component for better performance
+const Racing3DWheel = lazy(() => import('../../components/Racing3DWheel'));
 
 // CORRECT imports — verified file names and function names
 import { calculatePressure } from '../../lib/calculator';
@@ -269,32 +272,61 @@ export default function TunePage() {
 
   return (
     <TuneErrorBoundary>
-    <main className="main-content" style={{ maxWidth: '1400px' }}>
-      <div className="hero-content stagger-1" style={{ marginBottom: '2rem', padding: '0 1rem' }}>
-        <h1 className="logo" style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)' }}>PRO TUNE</h1>
-        <p className="logo-tagline">Master Dashboard — Semua 9 modul kalkulasi dalam satu layar.</p>
-      </div>
+    <main className="main-content" style={{ maxWidth: '1400px', display: 'block' }}>
+      
+      {/* Hero Section with 3D Wheel */}
+      <section className="hero-3d-section">
+        <div className="hero-3d-content">
+          <div className="hero-3d-text stagger-1">
+            <h1 className="logo" style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>PRO TUNE</h1>
+            <p className="logo-tagline" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', maxWidth: '480px' }}>
+              Master Dashboard untuk tuning Forza Horizon. Semua 9 modul kalkulasi dalam satu layar dengan hasil real-time.
+            </p>
+            <div className="stats-row" style={{ marginTop: '1rem' }}>
+              <div className="stat-item">
+                <span className="stat-value">9</span>
+                <span className="stat-label">Modul Tuning</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">8+</span>
+                <span className="stat-label">Preset Mobil</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">100%</span>
+                <span className="stat-label">Akurat</span>
+              </div>
+            </div>
+          </div>
+          <div className="hero-3d-wheel stagger-2">
+            <Suspense fallback={<div className="racing-3d-loading"><div className="racing-3d-loading-spinner" /></div>}>
+              <Racing3DWheel height="380px" primaryColor="#f97316" accentColor="#22d3ee" />
+            </Suspense>
+          </div>
+        </div>
+      </section>
 
-      <div className="calculator-layout tune-layout">
+      <div className="calculator-layout tune-layout" style={{ marginTop: '2rem' }}>
         
         {/* INPUT SECTION (LEFT) */}
-        <div className="input-section stagger-2" style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+        <div className="input-section stagger-2" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           
           {/* PANEL 0: Quick Preset */}
-          <div className="glass-panel" style={{ borderColor: 'rgba(255,204,0,0.15)', background: 'rgba(255,204,0,0.03)' }}>
-            <h2 className="panel-title" style={{ color: '#f97316', fontSize: '0.9rem' }}>⚡ Quick Preset</h2>
+          <div className="glass-panel" style={{ borderColor: 'rgba(249, 115, 22, 0.2)', background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.05), transparent)' }}>
+            <h2 className="panel-title" style={{ color: '#f97316', fontSize: '0.85rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <span style={{ fontSize: '1rem' }}>&#9889;</span> Quick Preset
+            </h2>
             <div className="form-group">
               <select 
                 value={selectedPreset} 
                 onChange={(e) => applyPreset(e.target.value)} 
                 className="glass-input"
-                style={{ fontSize: '1rem', padding: '0.7rem' }}
+                style={{ fontSize: '0.95rem', padding: '0.7rem' }}
               >
                 {Object.entries(PRESETS).map(([key, p]) => (
                   <option key={key} value={key}>{p.label}</option>
                 ))}
               </select>
-              <span style={{ fontSize: '0.72rem', color: '#888', marginTop: '4px' }}>
+              <span style={{ fontSize: '0.7rem', color: 'var(--color-text-dim)', marginTop: '6px', lineHeight: '1.4' }}>
                 Pilih mobil untuk mengisi otomatis semua field. Bisa diedit setelah dipilih.
               </span>
             </div>
@@ -302,7 +334,7 @@ export default function TunePage() {
 
           {/* PANEL 1: Vehicle Specs */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#22d3ee' }}>Spesifikasi Kendaraan</h2>
+            <h2 className="panel-title" style={{ color: '#22d3ee', fontSize: '0.85rem' }}>Spesifikasi Kendaraan</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Berat Total (kg)</label>
@@ -322,9 +354,9 @@ export default function TunePage() {
               </div>
             </div>
             
-            <div className="form-group" style={{ marginTop: '1rem' }}>
+            <div className="form-group" style={{ marginTop: '1.25rem' }}>
               <label>Distribusi Berat Depan (%)</label>
-              <div className="range-container">
+              <div className="range-container" style={{ marginTop: '0.5rem' }}>
                 <input type="range" name="weightBias" value={formData.weightBias} onChange={handleChange} className="glass-range" min="30" max="70" step="1" />
                 <span className="range-value">{formData.weightBias}%</span>
               </div>
@@ -333,7 +365,7 @@ export default function TunePage() {
 
           {/* PANEL 2: Race Profile */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#f97316' }}>Profil Balap</h2>
+            <h2 className="panel-title" style={{ color: '#f97316', fontSize: '0.85rem' }}>Profil Balap</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Tipe Trek</label>
@@ -382,7 +414,7 @@ export default function TunePage() {
 
           {/* PANEL 3: Wheels & Aero */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#22c55e' }}>Roda &amp; Aero</h2>
+            <h2 className="panel-title" style={{ color: '#22c55e', fontSize: '0.85rem' }}>Roda &amp; Aero</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Aero Depan (kgf)</label>
