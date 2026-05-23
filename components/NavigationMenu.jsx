@@ -52,7 +52,7 @@ export default function NavigationMenu() {
               key={href}
               href={href}
               className={`nav-link ${isActive(href) ? 'active' : ''}`}
-              style={isPro ? { color: '#ffcc00', fontWeight: 'bold' } : undefined}
+              style={isPro ? { color: '#f97316', fontWeight: 'bold' } : undefined}
               aria-current={isActive(href) ? 'page' : undefined}
             >
               <Icon size={18} aria-hidden="true" /> {label}

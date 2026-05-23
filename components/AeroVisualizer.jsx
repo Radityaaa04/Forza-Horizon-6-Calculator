@@ -17,8 +17,8 @@ export default function AeroVisualizer({
 
   // Arrow color based on intensity
   const getArrowColor = (value) => {
-    if (value > 250) return '#ff2d78'; // Red/Pink (High)
-    if (value > 120) return '#ffcc00'; // Yellow (Medium)
+    if (value > 250) return '#f97316'; // Red/Pink (High)
+    if (value > 120) return '#f97316'; // Yellow (Medium)
     return '#00ffaa'; // Green (Low)
   };
 
@@ -84,7 +84,7 @@ export default function AeroVisualizer({
         <path d="M 25 110 L 40 110" stroke="#00ffaa" strokeWidth="3" strokeLinecap="round" />
         
         {/* Rear Wing Indicator */}
-        <path d="M 250 70 L 275 60 L 275 55 L 250 65 Z" fill="#ff2d78" />
+        <path d="M 250 70 L 275 60 L 275 55 L 250 65 Z" fill="#f97316" />
         <line x1="260" y1="65" x2="260" y2="85" stroke="#555" strokeWidth="2" />
 
         {/* Downforce Arrows */}

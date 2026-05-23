@@ -35,7 +35,7 @@ export default class TuneErrorBoundary extends React.Component {
         }}>
           <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>⚠️</div>
           <h2 style={{ 
-            color: '#ff3344', 
+            color: '#ef4444', 
             fontFamily: 'var(--font-heading)', 
             fontSize: '1.2rem',
             marginBottom: '0.5rem'

@@ -133,7 +133,7 @@ export default function TuneSummarySheet({
             background: copied ? 'rgba(0,255,136,0.15)' : 'rgba(255,255,255,0.05)',
             border: `1px solid ${copied ? 'rgba(0,255,136,0.3)' : 'rgba(255,255,255,0.1)'}`,
             borderRadius: '6px',
-            color: copied ? '#00ff88' : '#aaa',
+            color: copied ? '#22c55e' : '#aaa',
             padding: '0.4rem 1rem',
             fontSize: '0.75rem',
             fontFamily: 'var(--font-heading)',
@@ -314,17 +314,17 @@ export default function TuneSummarySheet({
             <h3 className="tune-section-title" style={{ marginTop: '1rem' }}>SLIDER POSITION (est.)</h3>
             <div className="tune-row">
               <span className="tune-label">FRONT</span>
-              <span className="tune-value" style={{ color: '#7b61ff' }}>~{aero?.frontSliderPct ?? '-'}%</span>
+              <span className="tune-value" style={{ color: '#22d3ee' }}>~{aero?.frontSliderPct ?? '-'}%</span>
             </div>
             <div className="tune-row">
               <span className="tune-label">REAR</span>
-              <span className="tune-value" style={{ color: '#7b61ff' }}>~{aero?.rearSliderPct ?? '-'}%</span>
+              <span className="tune-value" style={{ color: '#22d3ee' }}>~{aero?.rearSliderPct ?? '-'}%</span>
             </div>
 
             {aero?.dragPenaltyKmh > 0 && (
               <div className="tune-row" style={{ marginTop: '0.5rem' }}>
                 <span className="tune-label">DRAG PENALTY</span>
-                <span className="tune-value" style={{ color: '#ffcc00' }}>-{aero.dragPenaltyKmh} <small>km/h</small></span>
+                <span className="tune-value" style={{ color: '#f97316' }}>-{aero.dragPenaltyKmh} <small>km/h</small></span>
               </div>
             )}
           </div>
@@ -392,7 +392,7 @@ export default function TuneSummarySheet({
       {/* NOTES PANEL */}
       {allWarnings.length > 0 && (
         <div className="tune-notes">
-          <h4 style={{ color: '#ffcc00', marginBottom: '0.8rem', fontFamily: 'Orbitron', fontSize: '0.9rem' }}>
+          <h4 style={{ color: '#f97316', marginBottom: '0.8rem', fontFamily: 'Orbitron', fontSize: '0.9rem' }}>
             ENGINEER&apos;S NOTES
           </h4>
           <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.85rem', lineHeight: '1.5' }}>

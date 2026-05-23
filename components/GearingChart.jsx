@@ -36,9 +36,9 @@ export default function GearingChart({ chartData, peakTorqueRpm, peakPowerRpm, r
 
   // Colors for different gears (gradient aesthetic)
   const colors = [
-    '#ff2d78', '#ff4b5c', '#ff6b35', '#ffa600', 
-    '#00ff88', '#00d4ff', '#0088ff', '#7b61ff', 
-    '#c850c0', '#ff2d78'
+    '#f97316', '#ff4b5c', '#fb923c', '#ffa600', 
+    '#22c55e', '#22d3ee', '#0088ff', '#22d3ee', 
+    '#c850c0', '#f97316'
   ];
 
   return (
@@ -82,30 +82,30 @@ export default function GearingChart({ chartData, peakTorqueRpm, peakPowerRpm, r
           {peakTorqueRpm && (
             <ReferenceLine 
               y={parseInt(peakTorqueRpm)} 
-              stroke="#ff2d78" 
+              stroke="#f97316" 
               strokeDasharray="4 4" 
               opacity={0.5} 
-              label={{ position: 'top', value: 'Peak Torque', fill: '#ff2d78', fontSize: 10, opacity: 0.8 }} 
+              label={{ position: 'top', value: 'Peak Torque', fill: '#f97316', fontSize: 10, opacity: 0.8 }} 
             />
           )}
           
           {peakPowerRpm && (
             <ReferenceLine 
               y={parseInt(peakPowerRpm)} 
-              stroke="#ffaa00" 
+              stroke="#f97316" 
               strokeDasharray="4 4" 
               opacity={0.5} 
-              label={{ position: 'top', value: 'Peak Power', fill: '#ffaa00', fontSize: 10, opacity: 0.8 }} 
+              label={{ position: 'top', value: 'Peak Power', fill: '#f97316', fontSize: 10, opacity: 0.8 }} 
             />
           )}
           
           {redlineRpm && (
             <ReferenceLine 
               y={parseInt(redlineRpm)} 
-              stroke="#ff3344" 
+              stroke="#ef4444" 
               strokeDasharray="3 3" 
               opacity={0.6} 
-              label={{ position: 'top', value: 'Redline', fill: '#ff3344', fontSize: 10, opacity: 0.8 }} 
+              label={{ position: 'top', value: 'Redline', fill: '#ef4444', fontSize: 10, opacity: 0.8 }} 
             />
           )}
 

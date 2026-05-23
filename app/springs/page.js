@@ -114,7 +114,7 @@ export default function SpringsPage() {
             <h2 className="panel-title">Hasil Tuning</h2>
             
             {results.error ? (
-              <div className="error-message" style={{ color: '#ff2d78', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
+              <div className="error-message" style={{ color: '#f97316', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
                 {results.error}
               </div>
             ) : (
@@ -138,7 +138,7 @@ export default function SpringsPage() {
                   </div>
                   <div className="result-card">
                     <span className="result-label">Springs Belakang</span>
-                    <span className="result-value" style={{ color: '#ff2d78' }}>
+                    <span className="result-value" style={{ color: '#f97316' }}>
                       {results.rearSpring.toFixed(1)} <span style={{ fontSize: '0.9rem', color: '#888' }}>N/mm</span>
                     </span>
                     <span style={{ fontSize: '0.85rem', color: '#aaa' }}>
@@ -160,8 +160,8 @@ export default function SpringsPage() {
                 </div>
 
                 {results.warnings && results.warnings.length > 0 && (
-                  <div className="warnings-container" style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255, 204, 0, 0.1)', borderRadius: '8px', borderLeft: '4px solid #ffcc00' }}>
-                    <h4 style={{ color: '#ffcc00', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
+                  <div className="warnings-container" style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255, 204, 0, 0.1)', borderRadius: '8px', borderLeft: '4px solid #f97316' }}>
+                    <h4 style={{ color: '#f97316', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
                     <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
                       {results.warnings.map((warn, i) => <li key={i} style={{ marginBottom: '4px' }}>{warn}</li>)}
                     </ul>

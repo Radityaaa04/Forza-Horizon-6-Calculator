@@ -128,7 +128,7 @@ export default function DifferentialPage() {
             <h2 className="panel-title">Hasil Tuning Differential</h2>
 
             {results.error ? (
-              <div style={{ color: '#ff2d78', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
+              <div style={{ color: '#f97316', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
                 {results.error}
               </div>
             ) : (
@@ -158,10 +158,10 @@ export default function DifferentialPage() {
                   {/* REAR diff — shown for RWD and AWD */}
                   {(isRWD || isAWD) && (
                     <div style={{ marginBottom: '1.5rem' }}>
-                      <h3 style={{ color: '#ff2d78', fontFamily: 'Orbitron', fontSize: '0.8rem', marginBottom: '1rem', letterSpacing: '2px' }}>
+                      <h3 style={{ color: '#f97316', fontFamily: 'Orbitron', fontSize: '0.8rem', marginBottom: '1rem', letterSpacing: '2px' }}>
                         ▸ REAR DIFFERENTIAL
                       </h3>
-                      <SLIDER_ROW label="Acceleration" value={results.rearAccel}  accent="#ff2d78" />
+                      <SLIDER_ROW label="Acceleration" value={results.rearAccel}  accent="#f97316" />
                       <SLIDER_ROW label="Deceleration" value={results.rearDecel}  accent="#cc1155" />
                     </div>
                   )}
@@ -169,14 +169,14 @@ export default function DifferentialPage() {
                   {/* CENTER diff — AWD only */}
                   {isAWD && (
                     <div style={{ marginBottom: '1.5rem' }}>
-                      <h3 style={{ color: '#ffcc00', fontFamily: 'Orbitron', fontSize: '0.8rem', marginBottom: '1rem', letterSpacing: '2px' }}>
+                      <h3 style={{ color: '#f97316', fontFamily: 'Orbitron', fontSize: '0.8rem', marginBottom: '1rem', letterSpacing: '2px' }}>
                         ▸ CENTER DIFFERENTIAL
                       </h3>
                       {/* Center balance bar — 0 = full rear, 100 = full front */}
                       <div style={{ marginBottom: '6px' }}>
                         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
                           <span style={{ color: '#888', fontFamily: 'Orbitron', fontSize: '0.7rem' }}>FULL REAR</span>
-                          <span style={{ color: '#ffcc00', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>{results.centerBalance}%</span>
+                          <span style={{ color: '#f97316', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>{results.centerBalance}%</span>
                           <span style={{ color: '#888', fontFamily: 'Orbitron', fontSize: '0.7rem' }}>FULL FRONT</span>
                         </div>
                         <div style={{ position: 'relative', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '10px', overflow: 'hidden' }}>
@@ -184,7 +184,7 @@ export default function DifferentialPage() {
                             position: 'absolute', left: 0, top: 0,
                             width: `${results.centerBalance}%`,
                             height: '100%',
-                            background: 'linear-gradient(to right, #ff2d78, #ffcc00)',
+                            background: 'linear-gradient(to right, #f97316, #f97316)',
                             borderRadius: '10px',
                             transition: 'width 0.4s ease',
                           }} />
@@ -197,8 +197,8 @@ export default function DifferentialPage() {
                 </div>
 
                 {results.warnings?.length > 0 && (
-                  <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(255,204,0,0.1)', borderRadius: '8px', borderLeft: '4px solid #ffcc00' }}>
-                    <h4 style={{ color: '#ffcc00', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
+                  <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(255,204,0,0.1)', borderRadius: '8px', borderLeft: '4px solid #f97316' }}>
+                    <h4 style={{ color: '#f97316', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
                     <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
                       {results.warnings.map((w, i) => <li key={i} style={{ marginBottom: '4px' }}>{w}</li>)}
                     </ul>

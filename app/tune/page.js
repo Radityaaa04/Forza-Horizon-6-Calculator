@@ -282,7 +282,7 @@ export default function TunePage() {
           
           {/* PANEL 0: Quick Preset */}
           <div className="glass-panel" style={{ borderColor: 'rgba(255,204,0,0.15)', background: 'rgba(255,204,0,0.03)' }}>
-            <h2 className="panel-title" style={{ color: '#ffcc00', fontSize: '0.9rem' }}>⚡ Quick Preset</h2>
+            <h2 className="panel-title" style={{ color: '#f97316', fontSize: '0.9rem' }}>⚡ Quick Preset</h2>
             <div className="form-group">
               <select 
                 value={selectedPreset} 
@@ -302,7 +302,7 @@ export default function TunePage() {
 
           {/* PANEL 1: Vehicle Specs */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#00d4ff' }}>Spesifikasi Kendaraan</h2>
+            <h2 className="panel-title" style={{ color: '#22d3ee' }}>Spesifikasi Kendaraan</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Berat Total (kg)</label>
@@ -333,7 +333,7 @@ export default function TunePage() {
 
           {/* PANEL 2: Race Profile */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#ff2d78' }}>Profil Balap</h2>
+            <h2 className="panel-title" style={{ color: '#f97316' }}>Profil Balap</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Tipe Trek</label>
@@ -382,7 +382,7 @@ export default function TunePage() {
 
           {/* PANEL 3: Wheels & Aero */}
           <div className="glass-panel">
-            <h2 className="panel-title" style={{ color: '#00ff88' }}>Roda &amp; Aero</h2>
+            <h2 className="panel-title" style={{ color: '#22c55e' }}>Roda &amp; Aero</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
               <div className="form-group">
                 <label>Aero Depan (kgf)</label>

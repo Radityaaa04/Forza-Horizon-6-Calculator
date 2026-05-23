@@ -28,8 +28,8 @@ export default function SpringsVisualizer({
 
     // Color based on stiffness: soft = green, medium = yellow, stiff = red
     let color = '#00ffaa'; // Soft
-    if (rate > 150) color = '#ff2d78'; // Stiff
-    else if (rate > 80) color = '#ffcc00'; // Medium
+    if (rate > 150) color = '#f97316'; // Stiff
+    else if (rate > 80) color = '#f97316'; // Medium
 
     return (
       <path 

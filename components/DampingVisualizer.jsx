@@ -114,7 +114,7 @@ export default function DampingVisualizer({
         .shock-body {
           width: 20px;
           height: 60px;
-          background: #ffcc00;
+          background: #f97316;
           border-radius: 4px;
           position: relative;
           z-index: 1;

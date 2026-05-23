@@ -15,11 +15,11 @@ export default function BrakeVisualizer({
     // Intensity from 0 to 1
     // Cold: #333
     // Warm: #ff6600
-    // Hot: #ff2d78
+    // Hot: #f97316
     if (intensity < 0.2) return '#555';
-    if (intensity < 0.5) return '#ffaa00';
+    if (intensity < 0.5) return '#f97316';
     if (intensity < 0.8) return '#ff6600';
-    return '#ff2d78';
+    return '#f97316';
   };
 
   // Calculate work done by front vs rear

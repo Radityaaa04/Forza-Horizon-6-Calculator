@@ -135,7 +135,7 @@ export default function BrakePage() {
             <h2 className="panel-title">Hasil Tuning Rem</h2>
 
             {results.error ? (
-              <div style={{ color: '#ff2d78', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
+              <div style={{ color: '#f97316', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
                 {results.error}
               </div>
             ) : (
@@ -154,7 +154,7 @@ export default function BrakePage() {
                     <div style={{
                       position: 'absolute', right: 0, top: 0,
                       width: `${frontPercent}%`, height: '100%',
-                      background: 'linear-gradient(to left, #ff2d78, rgba(255,45,120,0.4))',
+                      background: 'linear-gradient(to left, #f97316, rgba(255,45,120,0.4))',
                       borderRadius: '14px',
                       transition: 'width 0.5s ease'
                     }} />
@@ -179,7 +179,7 @@ export default function BrakePage() {
                     <span style={{ color: '#00ffaa', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>
                       {rearPercent.toFixed(1)}%
                     </span>
-                    <span style={{ color: '#ff2d78', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>
+                    <span style={{ color: '#f97316', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>
                       {frontPercent.toFixed(1)}%
                     </span>
                   </div>
@@ -189,7 +189,7 @@ export default function BrakePage() {
                 <div style={{ marginTop: '1.5rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '8px' }}>
                     <span style={{ color: '#fff', fontFamily: 'Orbitron', fontSize: '0.8rem' }}>BRAKE PRESSURE</span>
-                    <span style={{ color: '#ffcc00', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>
+                    <span style={{ color: '#f97316', fontFamily: 'Orbitron', fontSize: '1rem', fontWeight: 'bold' }}>
                       {results.pressure.toFixed(0)}%
                     </span>
                   </div>
@@ -197,7 +197,7 @@ export default function BrakePage() {
                     <div style={{
                       position: 'absolute', left: 0, top: 0,
                       width: `${pressurePercent}%`, height: '100%',
-                      background: 'linear-gradient(to right, #ffcc00, #ff6600)',
+                      background: 'linear-gradient(to right, #f97316, #ff6600)',
                       borderRadius: '14px',
                       transition: 'width 0.5s ease'
                     }} />
@@ -218,8 +218,8 @@ export default function BrakePage() {
                 </div>
 
                 {results.warnings && results.warnings.length > 0 && (
-                  <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255,204,0,0.1)', borderRadius: '8px', borderLeft: '4px solid #ffcc00' }}>
-                    <h4 style={{ color: '#ffcc00', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
+                  <div style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255,204,0,0.1)', borderRadius: '8px', borderLeft: '4px solid #f97316' }}>
+                    <h4 style={{ color: '#f97316', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
                     <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
                       {results.warnings.map((warn, i) => <li key={i} style={{ marginBottom: '4px' }}>{warn}</li>)}
                     </ul>

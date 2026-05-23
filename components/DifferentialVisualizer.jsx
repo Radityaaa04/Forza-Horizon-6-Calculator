@@ -14,8 +14,8 @@ export default function DifferentialVisualizer({
 
   // Color helpers
   const lockColor = (val) => {
-    if (val >= 75) return '#ff2d78';
-    if (val >= 45) return '#ffcc00';
+    if (val >= 75) return '#f97316';
+    if (val >= 45) return '#f97316';
     return '#00ffaa';
   };
 

@@ -103,7 +103,7 @@ export default function ARBVisualizer({ frontARB, rearARB, weight = 1250 }) {
 
         {/* Handling tendency label */}
         <div style={{ marginTop: '12px', textAlign: 'center', fontSize: '0.8rem' }}>
-          {frontBias > 55 && <span style={{ color: '#ff6b35', fontWeight: 600 }}>⚡ Oversteer Bias — Ekor lebih mudah bergeser</span>}
+          {frontBias > 55 && <span style={{ color: '#fb923c', fontWeight: 600 }}>⚡ Oversteer Bias — Ekor lebih mudah bergeser</span>}
           {rearBias > 55 && <span style={{ color: '#4fc3f7', fontWeight: 600 }}>🛡️ Understeer Bias — Lebih aman, kurang responsif</span>}
           {frontBias >= 45 && frontBias <= 55 && <span style={{ color: '#a8ff78', fontWeight: 600 }}>⚖️ Neutral — Handling seimbang</span>}
         </div>

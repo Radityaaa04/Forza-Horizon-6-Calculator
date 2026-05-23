@@ -1,6 +1,6 @@
 'use client';
 
-export default function TireCrossSection({ pressure = 30, maxPressure = 55, accentColor = '#ff2d78' }) {
+export default function TireCrossSection({ pressure = 30, maxPressure = 55, accentColor = '#f97316' }) {
   // Calculate tire deformation based on pressure
   const normalizedPressure = Math.max(0, Math.min(1, (pressure) / maxPressure));
 
@@ -17,16 +17,16 @@ export default function TireCrossSection({ pressure = 30, maxPressure = 55, acce
   let contactLabelColor = accentColor;
   if (normalizedPressure < 0.35) {
     contactLabel = 'Sangat Lebar';
-    contactLabelColor = '#00ff88';
+    contactLabelColor = '#22c55e';
   } else if (normalizedPressure < 0.5) {
     contactLabel = 'Lebar';
-    contactLabelColor = '#00d4ff';
+    contactLabelColor = '#22d3ee';
   } else if (normalizedPressure > 0.8) {
     contactLabel = 'Sangat Sempit';
-    contactLabelColor = '#ff3344';
+    contactLabelColor = '#ef4444';
   } else if (normalizedPressure > 0.65) {
     contactLabel = 'Sempit';
-    contactLabelColor = '#ffaa00';
+    contactLabelColor = '#f97316';
   }
 
   return (

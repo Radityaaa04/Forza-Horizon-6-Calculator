@@ -115,7 +115,7 @@ export default function AeroPage() {
             <h2 className="panel-title">Target Downforce (kgf)</h2>
             
             {results.error ? (
-              <div className="error-message" style={{ color: '#ff2d78', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
+              <div className="error-message" style={{ color: '#f97316', padding: '1rem', background: 'rgba(255,45,120,0.1)', borderRadius: '8px' }}>
                 {results.error}
               </div>
             ) : (
@@ -131,28 +131,28 @@ export default function AeroPage() {
                     <span className="result-value" style={{ color: '#00ffaa' }}>
                       {results.frontAero} <span style={{ fontSize: '0.9rem', color: '#888' }}>kgf</span>
                     </span>
-                    <span style={{ fontSize: '0.85rem', color: '#7b61ff' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#22d3ee' }}>
                       Slider: ~{results.frontSliderPct}%
                     </span>
                   </div>
                   <div className="result-card">
                     <span className="result-label">Aero Belakang</span>
-                    <span className="result-value" style={{ color: '#ff2d78' }}>
+                    <span className="result-value" style={{ color: '#f97316' }}>
                       {results.rearAero} <span style={{ fontSize: '0.9rem', color: '#888' }}>kgf</span>
                     </span>
-                    <span style={{ fontSize: '0.85rem', color: '#7b61ff' }}>
+                    <span style={{ fontSize: '0.85rem', color: '#22d3ee' }}>
                       Slider: ~{results.rearSliderPct}%
                     </span>
                   </div>
                   <div className="result-card">
                     <span className="result-label">Total Downforce</span>
-                    <span className="result-value" style={{ color: '#00d4ff' }}>
+                    <span className="result-value" style={{ color: '#22d3ee' }}>
                       {results.totalDownforce} <span style={{ fontSize: '0.9rem', color: '#888' }}>kgf</span>
                     </span>
                   </div>
                   <div className="result-card">
                     <span className="result-label">Est. Drag Penalty</span>
-                    <span className="result-value" style={{ color: results.dragPenaltyLabel === 'Tinggi' ? '#ff2d78' : results.dragPenaltyLabel === 'Rendah' ? '#00ffaa' : '#ffcc00' }}>
+                    <span className="result-value" style={{ color: results.dragPenaltyLabel === 'Tinggi' ? '#f97316' : results.dragPenaltyLabel === 'Rendah' ? '#00ffaa' : '#f97316' }}>
                       -{results.dragPenaltyKmh} <span style={{ fontSize: '0.9rem', color: '#888' }}>km/h</span>
                     </span>
                   </div>
@@ -162,7 +162,7 @@ export default function AeroPage() {
                 <div style={{ marginTop: '1.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 1rem', borderRadius: '8px', fontSize: '0.85rem' }}>
                       <span style={{ color: '#888' }}>Speed Factor (v²): </span>
-                      <span style={{ color: '#00d4ff', fontFamily: 'Orbitron' }}>{results.speedFactor}x</span>
+                      <span style={{ color: '#22d3ee', fontFamily: 'Orbitron' }}>{results.speedFactor}x</span>
                    </div>
                    <div style={{ background: 'rgba(255,255,255,0.05)', padding: '0.5rem 1rem', borderRadius: '8px', fontSize: '0.85rem' }}>
                       <span style={{ color: '#888' }}>Drag Level: </span>
@@ -171,8 +171,8 @@ export default function AeroPage() {
                 </div>
 
                 {results.warnings && results.warnings.length > 0 && (
-                  <div className="warnings-container" style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255, 204, 0, 0.1)', borderRadius: '8px', borderLeft: '4px solid #ffcc00' }}>
-                    <h4 style={{ color: '#ffcc00', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
+                  <div className="warnings-container" style={{ marginTop: '1.5rem', padding: '1rem', background: 'rgba(255, 204, 0, 0.1)', borderRadius: '8px', borderLeft: '4px solid #f97316' }}>
+                    <h4 style={{ color: '#f97316', marginBottom: '0.5rem', fontFamily: 'Orbitron' }}>Catatan Tuning</h4>
                     <ul style={{ color: '#ccc', paddingLeft: '1.2rem', fontSize: '0.9rem' }}>
                       {results.warnings.map((warn, i) => <li key={i} style={{ marginBottom: '4px' }}>{warn}</li>)}
                     </ul>

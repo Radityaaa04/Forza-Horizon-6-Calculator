@@ -211,7 +211,7 @@ export default function AlignmentPage() {
               {results && (
                 <>
                   {results.warnings.length > 0 && (
-                    <div style={{ padding: '12px', background: 'rgba(255,170,0,0.1)', border: '1px solid var(--color-warning, #ffaa00)', borderRadius: '8px', color: '#ffaa00', fontSize: '0.8rem', marginBottom: '16px', lineHeight: '1.5' }}>
+                    <div style={{ padding: '12px', background: 'rgba(255,170,0,0.1)', border: '1px solid var(--color-warning, #f97316)', borderRadius: '8px', color: '#f97316', fontSize: '0.8rem', marginBottom: '16px', lineHeight: '1.5' }}>
                       {results.warnings.map((w, i) => <div key={i}>⚠️ {w}</div>)}
                     </div>
                   )}
