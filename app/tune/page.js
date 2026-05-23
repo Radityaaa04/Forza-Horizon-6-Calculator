@@ -272,43 +272,17 @@ export default function TunePage() {
     <TuneErrorBoundary>
     <main className="main-content" style={{ maxWidth: '1400px', display: 'block' }}>
       
-      {/* Hero Section with Performance Gauge */}
-      <section className="hero-3d-section">
-        <div className="hero-3d-content">
-          <div className="hero-3d-text stagger-1">
-            <h1 className="logo" style={{ fontSize: 'clamp(2.2rem, 6vw, 4rem)' }}>PRO TUNE</h1>
-            <p className="logo-tagline" style={{ fontSize: 'clamp(0.9rem, 2vw, 1.1rem)', maxWidth: '480px' }}>
-              Master Dashboard untuk tuning Forza Horizon. Semua 9 modul kalkulasi dalam satu layar dengan hasil real-time.
-            </p>
-            <div className="stats-row" style={{ marginTop: '1rem' }}>
-              <div className="stat-item">
-                <span className="stat-value">9</span>
-                <span className="stat-label">Modul Tuning</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-value">8+</span>
-                <span className="stat-label">Preset Mobil</span>
-              </div>
-              <div className="stat-item">
-                <span className="stat-value">100%</span>
-                <span className="stat-label">Akurat</span>
-              </div>
-            </div>
-          </div>
-          <div className="hero-3d-wheel stagger-2">
-            <PerformanceGauge
-              horsepower={parseFloat(formData.horsepower) || 400}
-              weight={parseFloat(formData.weight) || 1200}
-              topSpeed={parseFloat(formData.topSpeed) || 250}
-              weightBias={parseFloat(formData.weightBias) || 50}
-              drivetrain={formData.drivetrain}
-              tireCompound={formData.tireCompound}
-            />
-          </div>
+      {/* Compact Hero Section */}
+      <section className="tune-hero-compact stagger-1">
+        <div className="tune-hero-content">
+          <h1 className="logo" style={{ fontSize: 'clamp(1.8rem, 5vw, 3rem)' }}>PRO TUNE</h1>
+          <p className="tune-hero-subtitle">
+            Master Dashboard untuk tuning Forza Horizon. Semua 9 modul kalkulasi dalam satu layar.
+          </p>
         </div>
       </section>
 
-      <div className="calculator-layout tune-layout" style={{ marginTop: '2rem' }}>
+      <div className="tune-main-grid">
         
         {/* INPUT SECTION (LEFT) */}
         <div className="input-section stagger-2" style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
@@ -338,7 +312,7 @@ export default function TunePage() {
           {/* PANEL 1: Vehicle Specs */}
           <div className="glass-panel">
             <h2 className="panel-title" style={{ color: '#22d3ee', fontSize: '0.85rem' }}>Spesifikasi Kendaraan</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="tune-form-grid">
               <div className="form-group">
                 <label>Berat Total (kg)</label>
                 <input type="number" name="weight" value={formData.weight} onChange={handleChange} className="glass-input" min="500" max="3000" />
@@ -369,7 +343,7 @@ export default function TunePage() {
           {/* PANEL 2: Race Profile */}
           <div className="glass-panel">
             <h2 className="panel-title" style={{ color: '#f97316', fontSize: '0.85rem' }}>Profil Balap</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="tune-form-grid">
               <div className="form-group">
                 <label>Tipe Trek</label>
                 <select name="trackType" value={formData.trackType} onChange={handleChange} className="glass-input">
@@ -418,7 +392,7 @@ export default function TunePage() {
           {/* PANEL 3: Wheels & Aero */}
           <div className="glass-panel">
             <h2 className="panel-title" style={{ color: '#22c55e', fontSize: '0.85rem' }}>Roda &amp; Aero</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div className="tune-form-grid">
               <div className="form-group">
                 <label>Aero Depan (kgf)</label>
                 <input type="number" name="aeroDownforceFront" value={formData.aeroDownforceFront} onChange={handleChange} className="glass-input" min="0" max="1000" />
@@ -444,6 +418,23 @@ export default function TunePage() {
 
         {/* OUTPUT SECTION (RIGHT) */}
         <div className="output-section stagger-3 tune-output">
+          {/* Performance Gauge - Now integrated with output */}
+          <div className="glass-panel tune-gauge-panel">
+            <h2 className="panel-title gauge-title">
+              Performance Overview
+            </h2>
+            <div className="gauge-wrapper">
+              <PerformanceGauge
+                horsepower={parseFloat(formData.horsepower) || 400}
+                weight={parseFloat(formData.weight) || 1200}
+                topSpeed={parseFloat(formData.topSpeed) || 250}
+                weightBias={parseFloat(formData.weightBias) || 50}
+                drivetrain={formData.drivetrain}
+                tireCompound={formData.tireCompound}
+              />
+            </div>
+          </div>
+          
           <TuneSummarySheet 
             tires={results.tires}
             gearing={results.gearing}

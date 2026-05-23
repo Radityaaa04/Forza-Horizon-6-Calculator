@@ -2308,16 +2308,45 @@ select:focus-visible,
 /* ============================================
    ENHANCED TUNE PAGE LAYOUT
    ============================================ */
-.tune-layout {
-  grid-template-columns: minmax(320px, 480px) minmax(400px, 600px);
-  max-width: 1200px;
+
+/* Compact Hero for Tune Page */
+.tune-hero-compact {
+  width: 100%;
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  text-align: center;
+}
+
+.tune-hero-content {
+  max-width: 600px;
   margin: 0 auto;
+}
+
+.tune-hero-subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  color: var(--color-text-dim);
+  margin-top: var(--space-sm);
+  line-height: 1.5;
+}
+
+/* Main Grid Layout */
+.tune-main-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 420px) minmax(340px, 520px);
+  gap: var(--space-xl);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg) var(--space-2xl);
+  align-items: start;
 }
 
 .tune-output {
   position: sticky;
-  top: 80px;
-  max-height: calc(100vh - 100px);
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
@@ -2334,6 +2363,90 @@ select:focus-visible,
 .tune-output::-webkit-scrollbar-thumb {
   background: var(--color-primary);
   border-radius: 3px;
+}
+
+/* Performance Gauge Panel */
+.tune-gauge-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  overflow: hidden;
+  width: 100%;
+}
+
+.tune-gauge-panel .performance-gauge-container {
+  padding: 0;
+  max-width: 320px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.tune-gauge-panel .performance-main-gauge {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tune-gauge-panel .performance-metrics-grid {
+  width: 100%;
+  max-width: 280px;
+}
+
+.tune-gauge-panel .performance-stats-row {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Responsive Layout */
+@media (max-width: 900px) {
+  .tune-main-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    padding: 0 var(--space-md) var(--space-xl);
+  }
+  
+  .tune-output {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+  
+  .tune-hero-compact {
+    padding: var(--space-lg) var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .tune-main-grid {
+    gap: var(--space-lg);
+    padding: 0 var(--space-sm) var(--space-lg);
+  }
+  
+  .tune-gauge-panel {
+    padding: var(--space-md);
+  }
+  
+  /* Fix form grids on small screens */
+  .glass-panel [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Responsive form grid helper */
+.tune-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 480px) {
+  .tune-form-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ============================================
@@ -2750,5 +2863,77 @@ select:focus-visible,
   
   .performance-overall-value {
     font-size: 2rem;
+  }
+  
+  .tune-gauge-panel {
+    padding: var(--space-md);
+  }
+  
+  .tune-gauge-panel .panel-title {
+    font-size: 0.75rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .performance-gauge-container {
+    gap: var(--space-md);
+    padding: 0 var(--space-sm);
+  }
+  
+  .tune-gauge-panel {
+    padding: var(--space-sm);
+  }
+  
+  .tune-gauge-panel .panel-title {
+    font-size: 0.7rem !important;
+    margin-bottom: var(--space-sm) !important;
+  }
+  
+  .performance-main-gauge {
+    transform: scale(0.85);
+    transform-origin: center center;
+  }
+  
+  .performance-overall-ring {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .performance-overall-ring svg {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .performance-overall-value {
+    font-size: 1.6rem;
+  }
+  
+  .performance-overall-label {
+    font-size: 0.6rem;
+  }
+  
+  .performance-ptw {
+    padding: 6px 12px;
+  }
+  
+  .performance-ptw-value {
+    font-size: 1.1rem;
+  }
+  
+  .performance-stats-row {
+    gap: var(--space-sm);
+  }
+  
+  .performance-stat-value {
+    font-size: 0.95rem;
+  }
+  
+  .performance-stat-label {
+    font-size: 0.55rem;
+  }
+  
+  .bar-gauge-label,
+  .bar-gauge-value {
+    font-size: 0.65rem;
   }
 }
